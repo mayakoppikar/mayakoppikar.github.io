@@ -17,7 +17,7 @@
         <p>This project focuses on building a real-time operating system (RTOS) for a Formula 1 robot.  
         The RTOS manages motor control, sensor input, and inter-task communication with strict timing constraints.</p>
 
-        <h4>Key Features</h4>
+        <h6>Key Features</h6>
         <ul>
           <li>Task scheduling with priority-based preemption</li>
           <li>Motor control via PWM</li>
@@ -25,13 +25,17 @@
           <li>Interfacing via CAN bus</li>
         </ul>
 
-        <h4>Tech Stack</h4>
+        <h6>Tech Stack</h6>
         <ul>
           <li>Programming: C, ARM Assembly</li>
           <li>Hardware: STM32 Microcontroller</li>
           <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
         </ul>
+
+        
       </div>
+
+
 
     <div class="col-md-4">
   <!-- First Image -->
@@ -47,6 +51,41 @@
 
     </div>
 
+    <!-- Design Process Section -->
+<section id="design-process" class="container py-5">
+  <h6>Design Process</h6>
+  <ol>
+    <li>OS Kernel: </li>
+
+    <li>Memory Management: </li>
+
+    <li>Sensor Data Acquisition: </li>
+
+    <li>Motor Control and Race Stategy: </li>
+  </ol>
+</section>
+
+<!-- Major Challenges & Key Takeaways Section -->
+<section id="challenges" class="bg-white py-5">
+  <div class="container">
+    <h6>Major Challenges & Key Takeaways</h6>
+    <ul>
+      <li>Integrating multiple sensor inputs in real-time without losing task deadlines.</li>
+      <li>Debugging timing issues in preemptive task scheduling.</li>
+      <li>Ensuring reliable motor control with PWM under varying loads.</li>
+      
+      <li>Key Takeaways:
+        <ul>
+          <li>RTOS design requires careful planning of task priorities.</li>
+          <li>Simulations and incremental testing greatly reduce integration errors.</li>
+          <li>Documenting design decisions helps in troubleshooting and future upgrades.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
     <!-- Demos Section -->
     <section id="currentprojects" class="container py-5">
       <h2>Demos</h2>
@@ -54,38 +93,38 @@
 
         <!-- Demo 1 -->
         <div class="col-md-4 mb-4">
-          <h4>Initial Run</h4>
+          <h4>The Initial Run</h4>
           <div class="ratio ratio-16x9 mb-3">
             <iframe src="https://drive.google.com/file/d/1keadQgqoKQPhF_bU6Q8gEzgoIbei8LyO/preview" 
                     title="RTOS Initial Run" 
                     allowfullscreen>
             </iframe>
           </div>
-          <p>This is our robot's first run, demonstrating basic RTOS task scheduling and motor control.</p>
+          <p>April 12,2025: This is our robot's first run. At this stage, it collided with the wall a lot. This is mainly because we had not tuned our PID controller and were not (yet) using differential steering to control the motor PWM. </p>
         </div>
 
         <!-- Demo 2 -->
         <div class="col-md-4 mb-4">
-          <h4>MIPS Processor Demo</h4>
+          <h4>A Few Iterations In...</h4>
           <div class="ratio ratio-16x9 mb-3">
             <iframe src="https://drive.google.com/file/d/1qx9NNnm9EuUA9mBNKkrcVfnb6nZNtwH9/preview" 
-                    title="MIPS Processor" 
+                    title="Couple Days Later" 
                     allowfullscreen>
             </iframe>
           </div>
-          <p>This video shows the 5-stage MIPS processor implemented in Verilog, including instruction execution and pipeline operation.</p>
+          <p>April 15, 2025: At this stage, our robot is moving much faster and able to make much tigther turns. This is thanks to a much more finely tuner PID algorithm. We also implemented a back-up subroutine to handle sharp corners. This back-up code is triggered when the LIDAR shows a distance under about 10cm.</p>
         </div>
 
         <!-- Demo 3 -->
         <div class="col-md-4 mb-4">
-          <h4>Sonic Vision Device</h4>
+          <h4>Race Day</h4>
           <div class="ratio ratio-16x9 mb-3">
             <iframe src="https://drive.google.com/file/d/1usMtY5nBHVOBffB84Q1iw04r2i5gzHkq/preview" 
-                    title="Sonic Vision Demo" 
+                    title="Race Day" 
                     allowfullscreen>
             </iframe>
           </div>
-          <p>This video demonstrates the head-mounted Sonic Vision device providing depth perception via ultrasonic sensing and haptic feedback.</p>
+          <p>TApril 24, 2025: This is our robot on race day (check out this epic pass). Our team did pretty well, we placed 3rd overall! The blocks which the robots travel within mimic and actaul Formula 1 racetrack 🏎️</p>
         </div>
 
       </div>
