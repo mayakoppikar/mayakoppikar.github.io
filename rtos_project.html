@@ -28,29 +28,28 @@
       <h6>Tech Stack</h6>
       <ul>
         <li>Programming: C, ARM Assembly</li>
-        <li>Hardware: STM32 Microcontroller</li>
+        <li>Hardware: TM4C Microcontroller</li>
         <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
       </ul>
 
       <h6>Design Process</h6>
       <ol>
-        <li>OS Kernel</li>
-        <li>Memory Management</li>
-        <li>Sensor Data Acquisition</li>
-        <li>Motor Control and Race Strategy</li>
-        <li>Testing & Tuning</li>
+        <li>OS Kernel: </li>
+        <li>Memory Management: </li>
+        <li>Sensor Data Acquisition: </li>
+        <li>Motor Control and Race Strategy: </li>
+        <li>Testing & Tuning: </li>
       </ol>
 
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
-        <li>Integrating multiple sensor inputs in real-time without missing deadlines</li>
-        <li>Debugging timing issues in preemptive task scheduling</li>
-        <li>Ensuring reliable motor control with PWM under varying loads</li>
-        <li>Key Takeaways:
+        <li>OS Kernel Bugs: Our scheduler faced many kernel bugs throughout the process. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, trying to branch to a null address pointer when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler.</li>
+        <li>Motor PWM: Towards the end, after we implemnted differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
+        <li>Key Takeaways + Skils:
           <ul>
-            <li>RTOS design requires careful planning of task priorities</li>
-            <li>Simulations and incremental testing greatly reduce integration errors</li>
-            <li>Documenting design decisions helps in troubleshooting and future upgrades</li>
+            <li>Using logic analyzers and other minimally intrusive debug techniques</li>
+            <li>Reading the disassembly window + understanding compiler optimizations </li>
+            <li>Reading sensor datasheets to write drivers!</li>
           </ul>
         </li>
       </ul>
