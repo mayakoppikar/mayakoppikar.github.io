@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
+  <title>Maya Koppikar Portfolio</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* Custom professional colors */
     body {
-      background-color: #f8f9fa; /* light gray background */
-      color: #212529; /* dark text */
+      background-color: #f8f9fa;
+      color: #212529;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     nav.navbar {
-      background-color: #343a40; /* dark navbar */
+      background-color: #343a40;
     }
     footer {
       background-color: #212529;
@@ -26,7 +25,6 @@
       margin-bottom: 1.5rem;
       color: #343a40;
     }
-    /* Subtle hover effect on nav links */
     .nav-link:hover {
       color: #adb5bd !important;
     }
@@ -64,39 +62,39 @@
   <section id="whatido" class="bg-white py-5">
     <div class="container">
       <h2>What I Do</h2>
-      <p>I’m passionate about working where embedded software meets hardware. I enjoy designing and building systems involving PCB design and firmware in bare-metal and RTOS environments. With my understanding of computer architecture and circuit design, I love creating solutions that connect hardware and software in meaningful ways. These are some of my key skills: </p>
+      <p>I’m passionate about working where embedded software meets hardware...</p>
       <div class="container py-4">
         <div class="row text-center">
 
-            <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3">
             <h5>Programming</h5>
             <ul class="list-unstyled">
-                <li>Languages: C, C++, Assembly, Python Scripting</li>
-                <li>Git, Linux, Data Structures</li>
-                <li>Real-Time Operating Systems (RTOS), Data Aquisition</li>
+              <li>Languages: C, C++, Assembly, Python Scripting</li>
+              <li>Git, Linux, Data Structures</li>
+              <li>RTOS, Data Acquisition</li>
             </ul>
-            </div>
+          </div>
 
-            <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3">
             <h5>Embedded</h5>
             <ul class="list-unstyled">
-                <li>MCU Peripherals: PWM, GPIOs, Timers, Interrupts</li>
-                <li>Comm Protocols: I2C, SPI, CAN, UART</li>
-                <li>EE: PCB Design, Altium Designer</li>
+              <li>MCU Peripherals: PWM, GPIOs, Timers, Interrupts</li>
+              <li>Comm Protocols: I2C, SPI, CAN, UART</li>
+              <li>EE: PCB Design, Altium Designer</li>
             </ul>
-            </div>
+          </div>
 
-            <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3">
             <h5>Tools / Equipment</h5>
             <ul class="list-unstyled">
-                <li>Lab Equipment: Solder, Power Supplies, Waveform Generators, Vector Network Analyzer (VNA)</li>
-                <li>Boards: STM32 MCU, TM4C MCU, Artix-7 Basys FPGAs</li>
-                <li>Debugging: Oscilloscope, Logic Analyzer, DMM, LTSpice</li>
+              <li>Oscilloscope, Logic Analyzer, Soldering, VNA</li>
+              <li>Boards: STM32, TM4C, Artix-7 FPGA</li>
+              <li>Debugging: LTSpice, DMM, etc.</li>
             </ul>
-            </div>
-  </div>
-</div>
+          </div>
 
+        </div>
+      </div>
     </div>
   </section>
 
@@ -104,45 +102,39 @@
   <section id="currentprojects" class="container py-5">
     <h2>Current Projects</h2>
 
+    <!-- RTOS Project -->
     <div class="row mb-4">
       <div class="col-md-6">
-        <h4>Project Alpha</h4>
-        <p>A responsive web app for task management, designed with collaboration and simplicity in mind.</p>
+        <h4>
+          <a href="rtos_project.html" class="text-decoration-none text-dark">RTOS for Formula 1 Robot</a>
+        </h4>
+        <p>Developing a real-time operating system to manage sensor input, motor control, and communication in a Formula 1 style robot.</p>
+        <a href="rtos_project.html" class="btn btn-primary btn-sm">Learn More</a>
       </div>
       <div class="col-md-6">
         <div class="ratio ratio-16x9">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project Alpha Demo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="RTOS Project Demo" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
-    <!-- Add more current projects here if needed -->
-
+    <!-- Add more current projects here -->
   </section>
 
   <!-- Past Projects Section -->
   <section id="pastprojects" class="bg-white py-5">
     <div class="container">
       <h2>Past Projects</h2>
-
       <div class="row">
         <div class="col-md-4 mb-3">
           <div class="card h-100 shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">Project Beta</h5>
-              <p class="card-text">A portfolio website created using HTML, CSS, and vanilla JavaScript showcasing interactive UI.</p>
+              <h5 class="card-title">MIPS Processor Verilog Design</h5>
+              <p class="card-text">Designed and implemented a 5-stage pipelined MIPS processor in Verilog.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">Project Gamma</h5>
-              <p class="card-text">An e-commerce frontend built with React and Bootstrap, focusing on accessibility and performance.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Add more past projects cards as needed -->
+        <!-- Add more past project cards -->
       </div>
     </div>
   </section>
@@ -150,15 +142,14 @@
   <!-- Contact Section -->
   <section id="contact" class="container py-5">
     <h2>Contact</h2>
-    <p>If you'd like to get in touch, feel free to email me at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>If you'd like to get in touch, email me at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
   </section>
 
   <!-- Footer -->
   <footer class="text-center py-3">
-    <small>&copy; 2025 Your Name. All rights reserved.</small>
+    <small>&copy; 2025 Maya Koppikar. All rights reserved.</small>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
