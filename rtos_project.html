@@ -14,8 +14,7 @@
     <!-- Text Column -->
     <div class="col-md-8">
       <h2>RTOS for Formula 1 Robot</h2>
-      <p>This project focuses on building a real-time operating system (RTOS) for a Formula 1 robot.  
-      The RTOS manages motor control, sensor input, and inter-task communication with strict timing constraints.</p>
+      <p>This project focuses on building a real-time operating system (RTOS) for a Formula 1 robot. I worked on the OS Kernel and Memory Manager and then joined a team of 5 to develop a race strategy and compete against 10-15 teams. This project was part of a graduate ECE Class at UT Austin called Embedded Real-Time Systems and took us around 4 months (January 2025- April 2025) to complete. </p>
 
       <h6>Key Features</h6>
       <ul>
@@ -29,6 +28,7 @@
       <ul>
         <li>Programming: C, ARM Assembly</li>
         <li>Hardware: TM4C Microcontroller</li>
+        <li>Environment: ARM Keil uVision </li>
         <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
       </ul>
 
@@ -43,8 +43,10 @@
 
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
-        <li>OS Kernel Bugs: Our scheduler faced many kernel bugs throughout the process. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, trying to branch to a null address pointer when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler.</li>
-        <li>Motor PWM: Towards the end, after we implemnted differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
+        <li>OS Kernel Bugs: Our kernel has overcome many bugs. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, branching to null address pointers when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler.</li>
+        
+        <li>Motor PWM: Towards the end, after we implemented differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
+        
         <li>Key Takeaways + Skils:
           <ul>
             <li>Using logic analyzers and other minimally intrusive debug techniques</li>
@@ -80,7 +82,7 @@
 
       <!-- Demo 2 -->
       <div class="col-md-4 mb-4">
-        <h4>A Few Iterations In...</h4>
+        <h4>A Few Iterations In</h4>
         <div class="ratio ratio-16x9 mb-3">
           <iframe src="https://drive.google.com/file/d/1qx9NNnm9EuUA9mBNKkrcVfnb6nZNtwH9/preview" 
                   title="Couple Days Later" 
