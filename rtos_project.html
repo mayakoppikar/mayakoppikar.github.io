@@ -11,14 +11,14 @@
   <div class="container py-5">
     <h2>RTOS for Formula 1 Robot</h2>
     <p>This project focuses on building a real-time operating system (RTOS) for a Formula 1 robot.  
-    The RTOS manages motor control, sensor input, and inter-module communication with strict timing constraints.</p>
+    The RTOS manages motor control, sensor input, and inter-task communication with strict timing constraints.</p>
 
     <h4>Key Features</h4>
     <ul>
       <li>Task scheduling with priority-based preemption</li>
-      <li>Motor control via PWM with interrupt-driven feedback</li>
-      <li>Sensor fusion from IMU and encoders</li>
-      <li>Interfacing via UART and CAN bus</li>
+      <li>Motor control via PWM </li>
+      <li>Sensor fusion from LIDARs</li>
+      <li>Interfacing via CAN bus</li>
     </ul>
 
     <h4>Tech Stack</h4>
@@ -28,16 +28,56 @@
       <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
     </ul>
 
-    <h4>Demo</h4>
-    <div class="ratio ratio-16x9 mb-4">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="RTOS Project Demo" allowfullscreen></iframe>
+   <!-- Current Projects Section -->
+<section id="currentprojects" class="container py-5">
+  <h2>Demos</h2>
+  <div class="row">
+
+    <!-- Project 1 -->
+    <div class="col-md-4 mb-4">
+      <h4>Initial Run</h4>
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://drive.google.com/file/d/1keadQgqoKQPhF_bU6Q8gEzgoIbei8LyO/view?usp=drive_link" 
+                title="RTOS Initial Run" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p>
+        This video demonstrates the RTOS controlling the Formula 1 robot. You can see how motor control, sensor readings, and communication tasks are managed in real-time.
+      </p>
     </div>
 
-    <h4>Challenges & Learnings</h4>
-    <p>This project gave me hands-on experience with task synchronization, debugging embedded software, and ensuring real-time performance under resource constraints.</p>
+    <!-- Project 2 -->
+    <div class="col-md-4 mb-4">
+      <h4>more</h4>
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://drive.google.com/file/d/1qx9NNnm9EuUA9mBNKkrcVfnb6nZNtwH9/view?usp=drive_link" 
+                title="Circles" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p>
+        This video shows the 5-stage MIPS processor implemented in Verilog. The demonstration includes instruction execution, pipeline operation, and hazard handling.
+      </p>
+    </div>
 
-    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+    <!-- Project 3 -->
+    <div class="col-md-4 mb-4">
+      <h4>Project 3: Sonic Vision Device</h4>
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://drive.google.com/file/d/1usMtY5nBHVOBffB84Q1iw04r2i5gzHkq/view?usp=drive_link" 
+                title="Final Race Day!" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p>
+        This video demonstrates the head-mounted Sonic Vision device providing depth perception via ultrasonic sensing and haptic feedback.
+      </p>
+    </div>
+
   </div>
+</section>
+
 
 </body>
 </html>
