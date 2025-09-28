@@ -6,6 +6,8 @@
   <title>Maya Koppikar Portfolio</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     body {
       background-color: #f8f9fa;
@@ -27,6 +29,10 @@
     }
     .nav-link:hover {
       color: #adb5bd !important;
+    }
+    /* Icon hover effect */
+    .contact-icon:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -125,10 +131,8 @@
       </div>
     </div>
 
-
   </div>
 </section>
-
 
   <!-- Past Projects Section -->
 <section id="pastprojects" class="bg-white py-5">
@@ -144,7 +148,7 @@
               <a href="rtos_project.html" class="text-decoration-none text-dark">RTOS for Formula 1 Robot</a>
             </h5>
             <p class="card-text">A real-time operating system to manage motor control, sensors, and communications for a Formula 1 style robot.</p>
-            <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
+            <a href="rtos_project.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
@@ -157,8 +161,7 @@
               <a href="mips_project.html" class="text-decoration-none text-dark">MIPS Processor Verilog Design</a>
             </h5>
             <p class="card-text">A 5-stage MIPS processor in Verilog. </p>
-            <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
-
+            <a href="mips_project.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
@@ -171,29 +174,27 @@
               <a href="sonic_vision.html" class="text-decoration-none text-dark">Sonic Vision: Head-mounted Depth Perception Device</a>
             </h5>
             <p class="card-text">A head-mounted device that provides depth perception through ultrasonic sensing and haptic feedback.</p>
-                <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
+            <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
 
       <!-- Handheld Embedded Systems Game Project -->
-<div class="col-md-4 mb-3">
-  <div class="card h-100 shadow-sm">
-    <div class="card-body">
-      <h5 class="card-title">
-        <a href="handheld_game.html" class="text-decoration-none text-dark">Original Handheld Embedded Game</a>
-      </h5>
-      <p class="card-text">Designed a custom handheld game using embedded systems with a microcontroller, buttons, and LCD display.</p>
-      <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
-    </div>
-  </div>
-</div>
-
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="handheld_game.html" class="text-decoration-none text-dark">Original Handheld Embedded Game</a>
+            </h5>
+            <p class="card-text">Designed a custom handheld game using embedded systems with a microcontroller, buttons, and LCD display.</p>
+            <a href="handheld_game.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
-
 
  <!-- Contact Section -->
   <section id="contact" class="container py-5">
@@ -203,12 +204,14 @@
     </p>
 
     <p>Connect with me:</p>
-    <a href="https://github.com/mayakoppikar" target="_blank" class="me-3 contact-icon" title="GitHub">
-      <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-    </a>
-    <a href="https://linkedin.com/in/mayakoppikar" target="_blank" class="contact-icon" title="LinkedIn">
-      <i class="bi bi-linkedin" style="font-size: 1.5rem; color:#0A66C2;"></i>
-    </a>
+    <div>
+      <a href="https://github.com/mayakoppikar" target="_blank" class="me-3 contact-icon" title="GitHub">
+        <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+      </a>
+      <a href="https://linkedin.com/in/mayakoppikar" target="_blank" class="contact-icon" title="LinkedIn">
+        <i class="bi bi-linkedin" style="font-size: 1.5rem; color:#0A66C2;"></i>
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
