@@ -32,39 +32,56 @@
         <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
       </ul>
 
-      <h6>Design Process</h6>
-      <ol>
-    <li>OS Kernel: 
-    Our code implements 6 linked lists representing tasks of priorities 0-6, with prioirty 0 being the most critical. The context switch code handles for cases when all tasks are sleeping within each linked list and has an idle safe thread to avoid a null-pointer hard-fault. 
-    <img src="images/kernel_logicanalyzer.png" alt="Log analyzer" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-    <img src="images/context_switch.png" alt="Context switching" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-    We learnt the importance of using minimally intrusive debugging techniques (mainly logic analyzers) by measuring the performance of the system with and without debugging tools as shown below. 
-    <img src="images/debug.png" alt="Debug Data" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-</li>
+     
 
-<li>Memory Management: We implemented a File Allocation Table (FAT) file system abstraction to manage memory. In order to implement processes in our RTOS, we worked on a SPI driver for an SD card. Doing so, I learned about the SPI protocol. This is a SPI Packet frame captured from our logic analyzer. 
-    <img src="images/spi_packets.png" alt="SPI Packet" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-    Later we wrote code to implement the FAT. This involves creating a directory to store file metadata (file names, sizes, starting locations) and 512 byte chunks where data is stored.
-</li>
+<h6>Design Process</h6>
+<ol>
+  <li>
+    <strong>OS Kernel:</strong> 
+    Our code implements 6 linked lists representing tasks of priorities 0-6, with priority 0 being the most critical. The context switch code handles cases when all tasks are sleeping within each linked list and has an idle-safe thread to avoid null-pointer hard-faults. We learnt the importance of using minimally intrusive debugging techniques (mainly logic analyzers) by measuring system performance with and without debugging tools.
+    
+    <!-- Images stacked vertically -->
+    <img src="images/kernel_logicanalyzer.png" alt="Log analyzer" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/context_switch.png" alt="Context switching" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/debug.png" alt="Debug Data" class="img-fluid my-3" style="max-width:300px;">
+  </li>
 
-<li>Sensor Data Acquisition: 
-    We continually read in 3 distance sensor values per sample. They are placed with one in the center pointing straight ahead, and two 45 degrees on the right/left of the center sensor. This gives us 3 distance data points which we can then use to generate the coefficients fir the corresponsing parabola. Once this is done, we can calcuate the vertex of the parabola and use inverse trig to find the angle to that vertex. This angle is the direction we orient the robot towards. The magnitude of the angle, relative to straight 90 degrees, is the input to the motor control algorithm.
-    <img src="images/sensors.png" alt="Team Picture" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-    We mainly use the TF Luna LIDAR sensor, because it is a digital reading and provides fairly smooth, accurate readings. We use UART to interface them with our MCU.
-    <img src="images/tfluna.png" alt="Team Picture" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-</li>
+  <li>
+    <strong>Memory Management:</strong>
+    We implemented a File Allocation Table (FAT) file system abstraction to manage memory. In order to implement processes in our RTOS, we worked on a SPI driver for an SD card. Doing so, I learned about the SPI protocol. Later we wrote code to implement the FAT, which involves creating a directory to store file metadata (file names, sizes, starting locations) and 512-byte chunks where data is stored.
 
-<li>Motor Control and Race Strategy: 
-    We began first with a call-graph to formulate a high-level strategy (shown below). 
-    <img src="images/call_graph.png" alt="Call Graph" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-    We decided to control the motors using differential steering. We apply a base power to both motors, and then use the input angler from the LIDAR sensors to determine the offset value. When turning right, we add the offset to the left wheel and subtract it from the right wheel (and vice versa when turning in the other direction). We calculate this offset by taking the raw input angle and then applying a PD control algorithm to it before setting that value as the PWM Duty cycle.
-    <img src="images/algo.png" alt="Algorithm" class="img-fluid mb-4 mt-2" style="max-width:300px;">
-</li>
+    <!-- Images -->
+    <img src="images/spi_packets.png" alt="SPI Packet" class="img-fluid my-3" style="max-width:300px;">
+  </li>
 
-<li>Testing & Tuning: Once the kernel, sensors, and motors were fully initialized and running the final portion of this project was tuning the PD control. To do this, our team set up multiple race-tracks and measured the robot's response to sharp turns and adjusted the Kp and Kd values of our control algorithm accordingly. </li>
+  <li>
+    <strong>Sensor Data Acquisition:</strong>
+    We continually read in 3 distance sensor values per sample: one in the center pointing straight ahead, and two 45 degrees on the left/right. This gives us 3 data points to generate coefficients for a corresponding parabola. We calculate the vertex of the parabola and use inverse trig to find the angle to that vertex. The magnitude of this angle is used in the motor control algorithm. We mainly use the TF Luna LIDAR sensor, as it provides smooth, accurate digital readings via UART.
+
+    <!-- Images -->
+    <img src="images/sensors.png" alt="Sensors" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/tfluna.png" alt="TF Luna LIDAR" class="img-fluid my-3" style="max-width:300px;">
+  </li>
+
+  <li>
+    <strong>Motor Control and Race Strategy:</strong>
+    We began with a call-graph to formulate a high-level strategy. Motors are controlled using differential steering. We apply a base power to both motors, and then use the input angle from LIDAR sensors to calculate an offset value. When turning right, we add the offset to the left wheel and subtract from the right (and vice versa). The offset is refined using a PD control algorithm before being applied as the PWM duty cycle.
+
+    <!-- Images -->
+    <img src="images/call_graph.png" alt="Call Graph" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/algo.png" alt="Algorithm" class="img-fluid my-3" style="max-width:300px;">
+  </li>
+
+  <li>
+    <strong>Testing & Tuning:</strong>
+    Once the kernel, sensors, and motors were fully initialized, we tuned the PD control. Our team set up multiple race tracks, measured the robot's response to sharp turns, and adjusted the Kp and Kd values of our control algorithm accordingly.
+  </li>
+</ol>
 
 
-      </ol>
+
+
+
 
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
