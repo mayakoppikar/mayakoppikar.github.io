@@ -35,8 +35,10 @@
       <h6>Design Process</h6>
       <ol>
     <li>OS Kernel: 
+    Our code implements 6 linked lists representing tasks of priorities 0-6, with prioirty 0 being the most critical. The context switch code handles for cases when all tasks are sleeping within each linked list and has an idle safe thread to avoid a null-pointer hard-fault. 
     <img src="images/kernel_logicanalyzer.png" alt="Log analyzer" class="img-fluid mb-4 mt-2" style="max-width:300px;">
     <img src="images/context_switch.png" alt="Context switching" class="img-fluid mb-4 mt-2" style="max-width:300px;">
+    We learnt the importance of using minimally intrusive debugging techniques (mainly logic analyzers) by measuring the performance of the system with and without debugging tools as shown below. 
     <img src="images/debug.png" alt="Debug Data" class="img-fluid mb-4 mt-2" style="max-width:300px;">
 </li>
 
@@ -46,16 +48,20 @@
 </li>
 
 <li>Sensor Data Acquisition: 
+    We continually read in 3 distance sensor values per sample. They are placed with one in the center pointing straight ahead, and two 45 degrees on the right/left of the center sensor. This gives us 3 distance data points which we can then use to generate the coefficients fir the corresponsing parabola. Once this is done, we can calcuate the vertex of the parabola and use inverse trig to find the angle to that vertex. This angle is the direction we orient the robot towards. The magnitude of the angle, relative to straight 90 degrees, is the input to the motor control algorithm.
     <img src="images/sensors.png" alt="Team Picture" class="img-fluid mb-4 mt-2" style="max-width:300px;">
+    We mainly use the TF Luna LIDAR sensor, because it is a digital reading and provides fairly smooth, accurate readings. We use UART to interface them with our MCU.
     <img src="images/tfluna.png" alt="Team Picture" class="img-fluid mb-4 mt-2" style="max-width:300px;">
 </li>
 
 <li>Motor Control and Race Strategy: 
+    We began first with a call-graph to formulate a high-level strategy (shown below). 
     <img src="images/call_graph.png" alt="Call Graph" class="img-fluid mb-4 mt-2" style="max-width:300px;">
+    We decided to control the motors using differential steering. We apply a base power to both motors, and then use the input angler from the LIDAR sensors to determine the offset value. When turning right, we add the offset to the left wheel and subtract it from the right wheel (and vice versa when turning in the other direction). We calculate this offset by taking the raw input angle and then applying a PD control algorithm to it before setting that value as the PWM Duty cycle.
     <img src="images/algo.png" alt="Algorithm" class="img-fluid mb-4 mt-2" style="max-width:300px;">
 </li>
 
-<li>Testing & Tuning: </li>
+<li>Testing & Tuning: Once the kernel, sensors, and motors were fully initialized and running the final portion of this project was tuning the PD control. To do this, our team set up multiple race-tracks and measured the robot's response to sharp turns and adjusted the Kp and Kd values of our control algorithm accordingly. </li>
 
 
       </ol>
