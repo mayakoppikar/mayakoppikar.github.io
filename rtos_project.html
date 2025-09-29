@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <h2>RTOS for Formula 1 Robot</h2>
       <p>This project focuses on building a real-time operating system (RTOS) for a Formula 1 robot. I worked on the OS Kernel and Memory Manager and then joined a team of 5 to develop a race strategy and compete against 10-15 teams. This project was part of a graduate ECE Class at UT Austin called Embedded Real-Time Systems and took us around 4 months (January 2025- April 2025) to complete. </p>
-
+<br><br>
       <h6>Key Features</h6>
       <ul>
         <li>Task scheduling with priority-based preemption</li>
@@ -32,7 +32,7 @@
         <li>RTOS Concepts: Scheduling, Semaphores, Queues</li>
       </ul>
 
-     
+     <br><br>
 
 <h6>Design Process</h6>
 <ol>
@@ -45,7 +45,7 @@
     <img src="images/context_switch.png" alt="Context switching" class="img-fluid my-3" style="max-width:300px;">
     <img src="images/debug.png" alt="Debug Data" class="img-fluid my-3" style="max-width:300px;">
   </li>
-
+<br>
   <li>
     <strong>Memory Management:</strong>
     We implemented a File Allocation Table (FAT) file system abstraction to manage memory. In order to implement processes in our RTOS, we worked on a SPI driver for an SD card. Doing so, I learned about the SPI protocol. Later we wrote code to implement the FAT, which involves creating a directory to store file metadata (file names, sizes, starting locations) and 512-byte chunks where data is stored.
@@ -53,7 +53,7 @@
     <!-- Images -->
     <img src="images/spi_packets.png" alt="SPI Packet" class="img-fluid my-3" style="max-width:300px;">
   </li>
-
+<br>
   <li>
     <strong>Sensor Data Acquisition:</strong>
     We continually read in 3 distance sensor values per sample: one in the center pointing straight ahead, and two 45 degrees on the left/right. This gives us 3 data points to generate coefficients for a corresponding parabola. We calculate the vertex of the parabola and use inverse trig to find the angle to that vertex. The magnitude of this angle is used in the motor control algorithm. We mainly use the TF Luna LIDAR sensor, as it provides smooth, accurate digital readings via UART.
@@ -62,7 +62,7 @@
     <img src="images/sensors.png" alt="Sensors" class="img-fluid my-3" style="max-width:300px;">
     <img src="images/tfluna.png" alt="TF Luna LIDAR" class="img-fluid my-3" style="max-width:300px;">
   </li>
-
+<br>
   <li>
     <strong>Motor Control and Race Strategy:</strong>
     We began with a call-graph to formulate a high-level strategy. Motors are controlled using differential steering. We apply a base power to both motors, and then use the input angle from LIDAR sensors to calculate an offset value. When turning right, we add the offset to the left wheel and subtract from the right (and vice versa). The offset is refined using a PD control algorithm before being applied as the PWM duty cycle.
@@ -71,11 +71,12 @@
     <img src="images/call_graph.png" alt="Call Graph" class="img-fluid my-3" style="max-width:300px;">
     <img src="images/algo.png" alt="Algorithm" class="img-fluid my-3" style="max-width:300px;">
   </li>
-
+<br>
   <li>
     <strong>Testing & Tuning:</strong>
     Once the kernel, sensors, and motors were fully initialized, we tuned the PD control. Our team set up multiple race tracks, measured the robot's response to sharp turns, and adjusted the Kp and Kd values of our control algorithm accordingly.
   </li>
+  <br>
 </ol>
 
 
@@ -86,9 +87,9 @@
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
         <li>OS Kernel Bugs: Our kernel has overcome many bugs. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, branching to null address pointers when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler. </li>
-        
+        <br>
         <li>Motor PWM: Towards the end, after we implemented differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
-        
+        <br>
         <li>Key Takeaways + Skils:
           <ul>
             <li>Using logic analyzers and other minimally intrusive debug techniques</li>
@@ -98,7 +99,7 @@
         </li>
       </ul>
     </div>
-
+<br>
     <!-- Images Column -->
     <div class="col-md-4">
       <img src="images/teampic.JPG" alt="Team Picture" class="img-fluid mb-3">
