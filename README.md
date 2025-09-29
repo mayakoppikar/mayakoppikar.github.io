@@ -1,7 +1,7 @@
 ## Hi there 👋
 
 - 🔭 I’m currently working on this portfolio website to showcase some of the projects I am working on at UT
-- 🌱 I’m currently learning bare-metal programming on STM MCUs
+- 🌱 I’m currently working on a bootloader for an STM32 MCU
 
       Find my portfolio site here: https://mayakoppikar.github.io/
 
