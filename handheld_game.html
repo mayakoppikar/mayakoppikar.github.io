@@ -14,20 +14,20 @@
     <!-- Text Column -->
     <div class="col-md-8">
       <h2>Longhorn Connections: Handheld Embedded Systems Game</h2>
-      <p>This project focuses on building a tool for visually impaired users to percieve depths in short ranges using haptic feedback from servo motors. I worked on this project as a team of 3 engineers as part of the Cockrell School 48-hour Design Makeathon. This project was took us around 2 days to complete (October 2023). This project was selected as a finallist by the Makeathon panel. </p>
+      <p>This project, called Lonhorn Connections, is a re-creation of the NYT Connections, our favorite of the NYT Games set! I worked on this project with one lab partner as part of an undergraduate Embedded Systems Introduction class. This project was took us around 2 months to complete (April 2024 - May 2024).</p>
 <br>
       <h6>Key Features</h6>
       <ul>
-        <li>Low-cost head-mounted device that provides haptic feedback to blind users</li>
-        <li>Control algorithm + time delays to synchronize array of ultrasonic sensors</li>
-        <li>Cross-sensor minimization subroutines</li>
+        <li></li>
+        <li></li>
+        <li></li>
       </ul>
 
       <h6>Tech Stack</h6>
       <ul>
-        <li>Programming: C# </li>
-        <li>Hardware: Arduino Uno Microcontroller</li>
-        <li>Environment: Arduino IDE </li>
+        <li>Programming: C, C++ </li>
+        <li>Hardware: TI MSPM0+ Microcontroller</li>
+        <li>Environment: Code Composer Studio (CCS) </li>
       </ul>
 
      <br><br>
@@ -70,15 +70,15 @@
 
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
-        <li>OS Kernel Bugs: Our kernel has overcome many bugs. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, branching to null address pointers when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler. </li>
+        <li>Analog to Digital Conversion: </li>
         <br>
-        <li>Motor PWM: Towards the end, after we implemented differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
+        <li>Implementing Keys: </li>
         <br>
         <li>Key Takeaways + Skils:
           <ul>
-            <li>Reading online </li>
-            <li>Reading the disassembly window + understanding compiler optimizations </li>
-            <li>Reading sensor datasheets to write drivers!</li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </li>
       </ul>
@@ -98,13 +98,13 @@
 
       <!-- Demo 1 -->
       <div class="col-md-4 mb-4">
-        <h4>The Initial Run</h4>
+        <h4>Game Instructions and Demo</h4>
         <div class="ratio ratio-16x9 mb-3">
-          <iframe src="https://drive.google.com/file/d/1keadQgqoKQPhF_bU6Q8gEzgoIbei8LyO/preview" 
-                  title="RTOS Initial Run" 
+          <iframe src="https://drive.google.com/file/d/1zwbty1VQU1OeBD_w7Q7lN6a6_6D9Jr2p/preview" 
+                  title="Game Demo" 
                   allowfullscreen></iframe>
         </div>
-        <p>April 12,2025: This is our robot's first run... At this stage it collided into many walls, which we learnt was mainly because we had not (yet) tuned our PID controller. </p>
+        <p>May 1,2024: This is a demo of Longhorn Connections with gameplay instructions</p>
       </div>
 
       <!-- Demo 2 -->
