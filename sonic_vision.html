@@ -3,34 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonic Vision Project</title>
+  <title>Sonic Vision - Maya Koppikar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="bg-light">
-  <div class="container py-5">
-    <h1 class="mb-4">Sonic Vision: Head-Mounted Depth Perception Device</h1>
-    <p>
-      Sonic Vision is a wearable device designed to aid visually impaired users in perceiving
-      depth information from their surroundings. Using ultrasonic sensors, the system
-      measures distances to nearby objects and communicates feedback via vibration motors
-      positioned on a headband.
-    </p>
 
-    <h3>Key Features</h3>
-    <ul>
-      <li>Ultrasonic sensors for accurate distance measurement</li>
-      <li>Haptic feedback through vibration motors for intuitive navigation</li>
-      <li>Lightweight, head-mounted design for portability</li>
-      <li>Microcontroller-based real-time signal processing</li>
-    </ul>
+<div class="container py-5">
+  <!-- Top Section: All text on left, images on right -->
+  <div class="row mb-5">
+    <!-- Text Column -->
+    <div class="col-md-8">
+      <h2>Sonic Vision: A Head-mounted Depth Perception Device</h2>
+      <p>This project focuses on building a tool for visually impaired users to percieve depths in short ranges using haptic feedback from servo motors. I worked on this project as a team of 3 engineers as part of the Cockrell School 48-hour Design Makeathon. This project was took us around 2 days to complete (October 2023). This project was selected as a finallist by the Makeathon panel. </p>
+<br>
+      <h6>Key Features</h6>
+      <ul>
+        <li>Low-cost head-mounted device that provides haptic feedback to blind users</li>
+        <li>Control algorithm + time delays to synchronize array of ultrasonic sensors</li>
+        <li>Cross-sensor minimization subroutines</li>
+      </ul>
 
-    <h3>Demo</h3>
-    <p>
-      A demonstration video or prototype showcase could be embedded here.
-      For example, you can replace this text with a YouTube iframe embed.
-    </p>
+      <h6>Tech Stack</h6>
+      <ul>
+        <li>Programming: C# </li>
+        <li>Hardware: Arduino Uno Microcontroller</li>
+        <li>Environment: Arduino IDE </li>
+      </ul>
 
-    <a href="index.html#pastprojects" class="btn btn-secondary mt-3">← Back to Portfolio</a>
+     <br><br>
+
+<h6>Design Process</h6>
+<ol>
+  <li>
+    <strong>Memory Management:</strong>
+    We implemented a File Allocation Table (FAT) file system abstraction to manage memory. In order to implement processes in our RTOS, we worked on a SPI driver for an SD card. Doing so, I learned about the SPI protocol. Later we wrote code to implement the FAT, which involves creating a directory to store file metadata (file names, sizes, starting locations) and 512-byte chunks where data is stored.
+
+    <!-- Images -->
+    <img src="images/spi_packets.png" alt="SPI Packet" class="img-fluid my-3" style="max-width:300px;">
+  </li>
+<br>
+  <li>
+    <strong>Sensor Data Acquisition:</strong>
+    We continually read in 3 distance sensor values per sample: one in the center pointing straight ahead, and two 45 degrees on the left/right. This gives us 3 data points to generate coefficients for a corresponding parabola. We calculate the vertex of the parabola and use inverse trig to find the angle to that vertex. The magnitude of this angle is used in the motor control algorithm. We mainly use the TF Luna LIDAR sensor, as it provides smooth, accurate digital readings via UART.
+
+    <!-- Images -->
+    <img src="images/sensors.png" alt="Sensors" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/tfluna.png" alt="TF Luna LIDAR" class="img-fluid my-3" style="max-width:300px;">
+  </li>
+<br>
+  <li>
+    <strong>Motor Control and Race Strategy:</strong>
+    We began with a call-graph to formulate a high-level strategy. Motors are controlled using differential steering. We apply a base power to both motors, and then use the input angle from LIDAR sensors to calculate an offset value. When turning right, we add the offset to the left wheel and subtract from the right (and vice versa). The offset is refined using a PD control algorithm before being applied as the PWM duty cycle.
+
+    <!-- Images -->
+    <img src="images/call_graph.png" alt="Call Graph" class="img-fluid my-3" style="max-width:300px;">
+    <img src="images/algo.png" alt="Algorithm" class="img-fluid my-3" style="max-width:300px;">
+  </li>
+<br>
+  <li>
+    <strong>Testing & Tuning:</strong>
+    Once the kernel, sensors, and motors were fully initialized, we tuned the PD control. Our team set up multiple race tracks, measured the robot's response to sharp turns, and adjusted the Kp and Kd values of our control algorithm accordingly.
+  </li>
+  <br>
+</ol>
+
+
+      <h6>Major Challenges & Key Takeaways</h6>
+      <ul>
+        <li>OS Kernel Bugs: Our kernel has overcome many bugs. Some of the most notable (and hardest to debug) were leaving OS Sleep and Kill functions within interrupts, branching to null address pointers when all tasks are sleeping, and conetxt switching within an interrupt instead of after exiting the interrupt handler. </li>
+        <br>
+        <li>Motor PWM: Towards the end, after we implemented differential steering, we often ran into cases where the MCU would reset and the code would enter the Hard Fault Handler. The reason for this is that when we set our motor PWM duty cycle above 80-90%, this would draw too much current and cause the MCU to reset. We fixed this by capping our duty cycle to 80%.  </li>
+        <br>
+        <li>Key Takeaways + Skils:
+          <ul>
+            <li>Reading online </li>
+            <li>Reading the disassembly window + understanding compiler optimizations </li>
+            <li>Reading sensor datasheets to write drivers!</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<br>
+    <!-- Images Column -->
+    <div class="col-md-4">
+      <img src="images/teampic.JPG" alt="Team Picture" class="img-fluid mb-3">
+      <img src="images/robotCloseup.JPG" alt="Robot close-up" class="img-fluid mb-3">
+    </div>
   </div>
+
+  <!-- Demos Section -->
+  <section id="currentprojects" class="container py-5">
+    <h2>Demos</h2>
+    <div class="row">
+
+      <!-- Demo 1 -->
+      <div class="col-md-4 mb-4">
+        <h4>The Initial Run</h4>
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe src="https://drive.google.com/file/d/1keadQgqoKQPhF_bU6Q8gEzgoIbei8LyO/preview" 
+                  title="RTOS Initial Run" 
+                  allowfullscreen></iframe>
+        </div>
+        <p>April 12,2025: This is our robot's first run... At this stage it collided into many walls, which we learnt was mainly because we had not (yet) tuned our PID controller. </p>
+      </div>
+
+      <!-- Demo 2 -->
+      <div class="col-md-4 mb-4">
+        <h4>A Few Iterations In</h4>
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe src="https://drive.google.com/file/d/1qx9NNnm9EuUA9mBNKkrcVfnb6nZNtwH9/preview" 
+                  title="Couple Days Later" 
+                  allowfullscreen></iframe>
+        </div>
+        <p>April 15, 2025: At this stage, our robot is moving much faster... By now, we have added differential steering allowing for much faster, tighter turns. Also, adding a back-up subroutine was a game-changer, allowing for even higher motor speeds.</p>
+      </div>
+
+      <!-- Demo 3 -->
+      <div class="col-md-4 mb-4">
+        <h4>Race Day</h4>
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe src="https://drive.google.com/file/d/1usMtY5nBHVOBffB84Q1iw04r2i5gzHkq/preview" 
+                  title="Race Day" 
+                  allowfullscreen></iframe>
+        </div>
+        <p>April 24, 2025: This is our robot on race day... We placed 3rd overall, check out this epic pass! 🏎️🏎️🏎️</p>
+      </div>
+
+    </div>
+  </section>
+<a href="index.html" class="btn btn-secondary mb-5">← Back to Portfolio</a>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
