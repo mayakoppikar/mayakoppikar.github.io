@@ -14,13 +14,13 @@
     <!-- Text Column -->
     <div class="col-md-8">
       <h2>Longhorn Connections: Handheld Embedded Systems Game</h2>
-      <p>This project, called Lonhorn Connections, is a re-creation of the NYT Connections, our favorite of the NYT Games set! I worked on this project with one lab partner as part of an undergraduate Embedded Systems Introduction class. This project was took us around 2 months to complete (April 2024 - May 2024).</p>
+      <p>This project, called Longhorn Connections, is a re-creation of the NYT Connections, our favorite of the NYT Games set! I worked on this project with one lab partner as part of an undergraduate Embedded Systems Introduction class. This project was took us around 2 months to complete (April 2024 - May 2024).</p>
 <br>
       <h6>Key Features</h6>
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>Analog to Digital Conversion (ADCs), Digital to Analog Conversion (DACs)</li>
+        <li>Buttons, Potentiometers, LEDs, LCD Display</li>
+        <li>Embedded Concepts: Timers, Interrupts, PWM</li>
       </ul>
 
       <h6>Tech Stack</h6>
@@ -35,50 +35,29 @@
 <h6>Design Process</h6>
 <ol>
   <li>
-    <strong>Memory Management:</strong>
-    We implemented a File Allocation Table (FAT) file system abstraction to manage memory. In order to implement processes in our RTOS, we worked on a SPI driver for an SD card. Doing so, I learned about the SPI protocol. Later we wrote code to implement the FAT, which involves creating a directory to store file metadata (file names, sizes, starting locations) and 512-byte chunks where data is stored.
-
-    <!-- Images -->
-    <img src="images/spi_packets.png" alt="SPI Packet" class="img-fluid my-3" style="max-width:300px;">
+    <strong>MCU Peripherals:</strong>
+  We worked on drivers for several MSPM0 peripherals including:
+            GPIO: Added LEDs to indicate game status
+            ADCs: Analog to digital conversion to incorporate digitized sounds and to control potentiometer for mode selection
+            UART: Allows us to read in data from terminal
   </li>
 <br>
   <li>
-    <strong>Sensor Data Acquisition:</strong>
-    We continually read in 3 distance sensor values per sample: one in the center pointing straight ahead, and two 45 degrees on the left/right. This gives us 3 data points to generate coefficients for a corresponding parabola. We calculate the vertex of the parabola and use inverse trig to find the angle to that vertex. The magnitude of this angle is used in the motor control algorithm. We mainly use the TF Luna LIDAR sensor, as it provides smooth, accurate digital readings via UART.
-
-    <!-- Images -->
-    <img src="images/sensors.png" alt="Sensors" class="img-fluid my-3" style="max-width:300px;">
-    <img src="images/tfluna.png" alt="TF Luna LIDAR" class="img-fluid my-3" style="max-width:300px;">
+    <strong>Mapping Functions:</strong>
+      Our game requires a key-value pair mapping between two connected words. The map library was too large to include in our code, so we implemented a map struct from scratch to represent these pairings and wrote algorithms to iterate through the pairs. 
+   
   </li>
 <br>
-  <li>
-    <strong>Motor Control and Race Strategy:</strong>
-    We began with a call-graph to formulate a high-level strategy. Motors are controlled using differential steering. We apply a base power to both motors, and then use the input angle from LIDAR sensors to calculate an offset value. When turning right, we add the offset to the left wheel and subtract from the right (and vice versa). The offset is refined using a PD control algorithm before being applied as the PWM duty cycle.
 
-    <!-- Images -->
-    <img src="images/call_graph.png" alt="Call Graph" class="img-fluid my-3" style="max-width:300px;">
-    <img src="images/algo.png" alt="Algorithm" class="img-fluid my-3" style="max-width:300px;">
-  </li>
-<br>
-  <li>
-    <strong>Testing & Tuning:</strong>
-    Once the kernel, sensors, and motors were fully initialized, we tuned the PD control. Our team set up multiple race tracks, measured the robot's response to sharp turns, and adjusted the Kp and Kd values of our control algorithm accordingly.
-  </li>
-  <br>
 </ol>
 
 
       <h6>Major Challenges & Key Takeaways</h6>
       <ul>
-        <li>Analog to Digital Conversion: </li>
-        <br>
-        <li>Implementing Keys: </li>
-        <br>
         <li>Key Takeaways + Skils:
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Communication protocols: UART</li>
+            <li>Interfacing hardware components in embedded systems</li>
           </ul>
         </li>
       </ul>
@@ -86,8 +65,8 @@
 <br>
     <!-- Images Column -->
     <div class="col-md-4">
-      <img src="images/teampic.JPG" alt="Team Picture" class="img-fluid mb-3">
-      <img src="images/robotCloseup.JPG" alt="Robot close-up" class="img-fluid mb-3">
+    <!--  <img src="images/teampic.JPG" alt="Team Picture" class="img-fluid mb-3">
+      <img src="images/robotCloseup.JPG" alt="Robot close-up" class="img-fluid mb-3">-->
     </div>
   </div>
 
@@ -107,26 +86,15 @@
         <p>May 1,2024: This is a demo of Longhorn Connections with gameplay instructions</p>
       </div>
 
-      <!-- Demo 2 -->
-      <div class="col-md-4 mb-4">
-        <h4>A Few Iterations In</h4>
-        <div class="ratio ratio-16x9 mb-3">
-          <iframe src="https://drive.google.com/file/d/1qx9NNnm9EuUA9mBNKkrcVfnb6nZNtwH9/preview" 
-                  title="Couple Days Later" 
-                  allowfullscreen></iframe>
-        </div>
-        <p>April 15, 2025: At this stage, our robot is moving much faster... By now, we have added differential steering allowing for much faster, tighter turns. Also, adding a back-up subroutine was a game-changer, allowing for even higher motor speeds.</p>
-      </div>
-
       <!-- Demo 3 -->
       <div class="col-md-4 mb-4">
         <h4>Race Day</h4>
         <div class="ratio ratio-16x9 mb-3">
-          <iframe src="https://drive.google.com/file/d/1usMtY5nBHVOBffB84Q1iw04r2i5gzHkq/preview" 
-                  title="Race Day" 
+          <iframe src="https://drive.google.com/file/d/1WqwpRyCJiPI3mebGIDxxhF_HS3d3pcEx/preview" 
+                  title="ADC" 
                   allowfullscreen></iframe>
         </div>
-        <p>April 24, 2025: This is our robot on race day... We placed 3rd overall, check out this epic pass! 🏎️🏎️🏎️</p>
+        <p>March 27, 2024: Audio from the ADC</p>
       </div>
 
     </div>
