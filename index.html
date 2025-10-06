@@ -50,7 +50,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#welcome">Welcome</a></li>
           <li class="nav-item"><a class="nav-link" href="#whatido">What I Do</a></li>
-          <li class="nav-item"><a class="nav-link" href="#currentprojects">Current Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
         <!-- <li class="nav-item"><a class="nav-link" href="#pastprojects">Past Projects</a></li> -->
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -133,7 +133,7 @@
       <div>
         <h5 class="card-title">Electrical Engineering Intern - Systel, Inc.</h5>
         <p class="card-text">
-            Worked on PCB Design using Altium Designer, LTSpice, and Saturn PCB. My main projects: <br> -Designing Power Distribution board to step down 28V input to 5V output <br> -Debugging fan and heater control firmware using PID control and PWM <br><br> Key takeaways: signal integrity, continuity testing, shielding, good routing principles, power calculations, and leveraging Monte-Carlo Analysis for circuit design.
+            Worked on PCB Design using Altium Designer, LTSpice, and Saturn PCB + Firmware Development. <br><br> •Designing Power Distribution board to step down 28V input to 5V output <br> •Debugging fan and heater control firmware in C using PID control and PWM <br><br> <strong>Key takeaways:</strong> signal integrity, continuity testing, good shielding + routing principles, and leveraging Monte-Carlo Analysis for circuit design.
         </p>
         <p class="text-muted"><small>Summer 2025</small></p>
       </div>
@@ -147,9 +147,9 @@
         <div class="card-body">
           <h5 class="card-title">Software Engineering Intern - Texas A&M University</h5>
           <p class="card-text">
-            Worked on scripts to define Epithelial to Mesenchymal Transition (EMT) using R, MATLAB, and Git. This internship taught me how to effectively use version control to collaborate with supervisors in a team-based project.
+            Worked on scripts to develop an app defining Epithelial to Mesenchymal Transition (EMT) using R, MATLAB, and Git. This internship taught me how to effectively use version control to collaborate with supervisors in a team-based project.
           </p>
-           <a href="https://georgeresearchgroup.org/alumni/">See more about my work here</a>
+           <a href="https://georgeresearchgroup.org/alumni/">See more about my internship here</a>
           <p class="text-muted"><small>Summer 2022</small></p>
         </div>
       </div>
@@ -158,8 +158,24 @@
   </div>
 </section>
 
-  <!-- Past Projects Section -->
-<section id="pastprojects" class="bg-white py-5">
+
+
+
+
+
+
+
+<!-- Past Projects Section -->
+<section id="projects" class="bg-white py-5">
+  <style>
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  </style>
+
   <div class="container">
     <h2>Projects</h2>
     <div class="row">
@@ -171,34 +187,18 @@
             <h5 class="card-title">
               <a href="rtos_project.html" class="text-decoration-none text-dark">RTOS for Formula 1 Robot</a>
             </h5>
-             <p class="text-muted"><small>Spring 2025</small></p>
+            <p class="text-muted"><small>Spring 2025</small></p>
             <p class="card-text">A real-time operating system to manage motor control, sensors, and communications for a Formula 1 style robot.</p>
-           
-            <!-- Image -->
-      <img src="images/robotCloseup.JPG" alt="RTOS" 
-           class="img-fluid me-3" 
-           style="width:150px; height:auto;">
 
+            <!-- Image -->
+            <img src="images/robotCloseup.JPG" alt="RTOS" class="img-fluid project-img">
 
             <a href="rtos_project.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
 
-      <!-- MIPS Project -->
-   <!--   <div class="col-md-4 mb-3">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="mips_project.html" class="text-decoration-none text-dark">MIPS Processor Verilog Design</a>
-            </h5>
-            <p class="card-text">A 5-stage MIPS processor in Verilog. </p>
-            <a href="mips_project.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
-          </div>
-        </div>
-      </div> -->
-
-       <!-- Handheld Embedded Systems Game Project -->
+      <!-- Handheld Embedded Systems Game Project -->
       <div class="col-md-4 mb-3">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
@@ -207,18 +207,14 @@
             </h5>
             <p class="text-muted"><small>Spring 2024</small></p>
             <p class="card-text">Designed a custom handheld game using embedded systems with a microcontroller, buttons, and LCD display.</p>
-           
-           <!-- Image -->
-      <img src="images/handheld_game.png" alt="Game" 
-           class="img-fluid me-3" 
-           style="width:150px; height:auto;">
-           
+
+            <!-- Image -->
+            <img src="images/handheld_game.png" alt="Game" class="img-fluid project-img">
+
             <a href="handheld_game.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
-
-      
 
       <!-- Sonic Vision Project -->
       <div class="col-md-4 mb-3">
@@ -229,23 +225,39 @@
             </h5>
             <p class="text-muted"><small>Fall 2023</small></p>
             <p class="card-text">A head-mounted device that provides depth perception through ultrasonic sensing and haptic feedback.</p>
-           
-             
-           <!-- Image -->
-      <img src="images/sonic_vision.JPG" alt="Sonic Vision" 
-           class="img-fluid me-3" 
-           style="width:150px; height:auto;">
-           
+
+            <!-- Image -->
+            <img src="images/sonic_vision.JPG" alt="Sonic Vision" class="img-fluid project-img">
+
             <a href="sonic_vision.html" class="btn btn-sm" style="background-color: #8B7D6B; color: white;">Learn More</a>
           </div>
         </div>
       </div>
 
-     
-
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  <!-- Contact Section -->
   <section id="contact" class="container py-5">
